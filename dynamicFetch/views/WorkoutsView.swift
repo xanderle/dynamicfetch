@@ -10,6 +10,8 @@ import SwiftUI
 import CoreData
 
 struct WorkoutsView: View {
+    @State private var editMode: EditMode = .inactive
+
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
     
     var fetchRequest : FetchRequest<Workout>
@@ -51,7 +53,13 @@ struct WorkoutsView: View {
                 }
                 
             }
+            .navigationBarTitle("Workouts")
+            .navigationBarItems(trailing: HStack{
+                EditButton()
+            })
+            .environment(\.editMode, self.$editMode)
         }
+    
     }
     
 
@@ -59,7 +67,6 @@ struct WorkoutsView: View {
         let node = fetchedResults[indexSet.first!]
         managedObjectContext.delete(node)
         saveItems(managedObjectContext: self.managedObjectContext)
-
     }
 }
 

@@ -26,6 +26,7 @@ struct ExerciseSetView: View {
         self.reps.text = "\(self.exerciseSet.reps ?? 0)"
         self.weight.text = "\(self.exerciseSet.weight ?? 0)"
     }
+    
     var body: some View {
         HStack {
             Text("\(set)")
