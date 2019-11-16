@@ -10,7 +10,7 @@ import Foundation
 import Combine
 
 public class DecimalTextFieldViewModel: ObservableObject {
-    @Published var text = ""
+    @Published var text = "0"
     private var subCancellable: AnyCancellable!
     private var validCharSet = CharacterSet(charactersIn: "1234567890")
 

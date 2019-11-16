@@ -11,7 +11,7 @@ import CoreData
 
 struct ExerciseSetView: View {
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
-    
+
     @ObservedObject private var weight = DecimalTextFieldViewModel()
     @ObservedObject private var reps = DecimalTextFieldViewModel()
     
@@ -22,9 +22,9 @@ struct ExerciseSetView: View {
         HStack {
             Text("\(set)")
             Spacer()
-            TextField("", text : self.$weight.text).keyboardType(.numberPad)
+            TextField("\(self.reps.text)", text : self.$weight.text).keyboardType(.numberPad)
             Spacer()
-            TextField("",text: self.$reps.text).keyboardType(.numberPad)
+            TextField("\(self.weight.text)",text: self.$reps.text).keyboardType(.numberPad)
             Spacer()
             deleteButton.animation(.default)
         }.onAppear() {
