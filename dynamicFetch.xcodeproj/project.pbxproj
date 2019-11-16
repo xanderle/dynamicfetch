@@ -15,6 +15,16 @@
 		221B9A6C2377C67600B414CF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 221B9A6B2377C67600B414CF /* Preview Assets.xcassets */; };
 		221B9A6F2377C67600B414CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 221B9A6D2377C67600B414CF /* LaunchScreen.storyboard */; };
 		221B9A7A2377C67600B414CF /* dynamicFetchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A792377C67600B414CF /* dynamicFetchTests.swift */; };
+		221B9A892377E90700B414CF /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A882377E90700B414CF /* Workout.swift */; };
+		221B9A8B2377E98500B414CF /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A8A2377E98500B414CF /* Exercise.swift */; };
+		221B9A8D2377EC1200B414CF /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A8C2377EC1200B414CF /* WorkoutsView.swift */; };
+		221B9A8F2377EC5400B414CF /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A8E2377EC5400B414CF /* WorkoutView.swift */; };
+		223D5BA4237EA7CC00FAD64E /* KeyboardHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D5BA3237EA7CC00FAD64E /* KeyboardHost.swift */; };
+		226C209123780627001A84BF /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C209023780627001A84BF /* ExerciseSet.swift */; };
+		226C20932378095D001A84BF /* ExerciseSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C20922378095D001A84BF /* ExerciseSetView.swift */; };
+		226C2098237A9C7E001A84BF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C2097237A9C7E001A84BF /* ExerciseView.swift */; };
+		226C209C237AAB25001A84BF /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C209B237AAB25001A84BF /* Utility.swift */; };
+		226C209F237BECC2001A84BF /* DecimalTextFieldViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C209E237BECC2001A84BF /* DecimalTextFieldViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +50,17 @@
 		221B9A752377C67600B414CF /* dynamicFetchTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = dynamicFetchTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		221B9A792377C67600B414CF /* dynamicFetchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dynamicFetchTests.swift; sourceTree = "<group>"; };
 		221B9A7B2377C67600B414CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		221B9A882377E90700B414CF /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		221B9A8A2377E98500B414CF /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		221B9A8C2377EC1200B414CF /* WorkoutsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutsView.swift; sourceTree = "<group>"; };
+		221B9A8E2377EC5400B414CF /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
+		223D5BA3237EA7CC00FAD64E /* KeyboardHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHost.swift; sourceTree = "<group>"; };
+		223D5BAA237F728700FAD64E /* dynamicFetch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dynamicFetch.entitlements; sourceTree = "<group>"; };
+		226C209023780627001A84BF /* ExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSet.swift; sourceTree = "<group>"; };
+		226C20922378095D001A84BF /* ExerciseSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetView.swift; sourceTree = "<group>"; };
+		226C2097237A9C7E001A84BF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
+		226C209B237AAB25001A84BF /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
+		226C209E237BECC2001A84BF /* DecimalTextFieldViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalTextFieldViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +102,11 @@
 		221B9A5E2377C66F00B414CF /* dynamicFetch */ = {
 			isa = PBXGroup;
 			children = (
+				223D5BAA237F728700FAD64E /* dynamicFetch.entitlements */,
+				223D5BA7237F598500FAD64E /* stores */,
+				226C209D237BECB9001A84BF /* helperModels */,
+				221B9A872377E8EC00B414CF /* models */,
+				221B9A842377DFDF00B414CF /* views */,
 				221B9A5F2377C66F00B414CF /* AppDelegate.swift */,
 				221B9A612377C66F00B414CF /* SceneDelegate.swift */,
 				221B9A662377C66F00B414CF /* ContentView.swift */,
@@ -89,6 +115,7 @@
 				221B9A702377C67600B414CF /* Info.plist */,
 				221B9A632377C66F00B414CF /* dynamicFetch.xcdatamodeld */,
 				221B9A6A2377C67600B414CF /* Preview Content */,
+				226C209B237AAB25001A84BF /* Utility.swift */,
 			);
 			path = dynamicFetch;
 			sourceTree = "<group>";
@@ -108,6 +135,43 @@
 				221B9A7B2377C67600B414CF /* Info.plist */,
 			);
 			path = dynamicFetchTests;
+			sourceTree = "<group>";
+		};
+		221B9A842377DFDF00B414CF /* views */ = {
+			isa = PBXGroup;
+			children = (
+				226C2097237A9C7E001A84BF /* ExerciseView.swift */,
+				226C20922378095D001A84BF /* ExerciseSetView.swift */,
+				221B9A8C2377EC1200B414CF /* WorkoutsView.swift */,
+				221B9A8E2377EC5400B414CF /* WorkoutView.swift */,
+				223D5BA3237EA7CC00FAD64E /* KeyboardHost.swift */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		221B9A872377E8EC00B414CF /* models */ = {
+			isa = PBXGroup;
+			children = (
+				226C209023780627001A84BF /* ExerciseSet.swift */,
+				221B9A882377E90700B414CF /* Workout.swift */,
+				221B9A8A2377E98500B414CF /* Exercise.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
+		223D5BA7237F598500FAD64E /* stores */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = stores;
+			sourceTree = "<group>";
+		};
+		226C209D237BECB9001A84BF /* helperModels */ = {
+			isa = PBXGroup;
+			children = (
+				226C209E237BECC2001A84BF /* DecimalTextFieldViewModel.swift */,
+			);
+			path = helperModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,9 +275,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				226C209C237AAB25001A84BF /* Utility.swift in Sources */,
+				226C2098237A9C7E001A84BF /* ExerciseView.swift in Sources */,
 				221B9A602377C66F00B414CF /* AppDelegate.swift in Sources */,
+				226C20932378095D001A84BF /* ExerciseSetView.swift in Sources */,
+				221B9A892377E90700B414CF /* Workout.swift in Sources */,
+				221B9A8D2377EC1200B414CF /* WorkoutsView.swift in Sources */,
+				221B9A8F2377EC5400B414CF /* WorkoutView.swift in Sources */,
+				226C209123780627001A84BF /* ExerciseSet.swift in Sources */,
 				221B9A622377C66F00B414CF /* SceneDelegate.swift in Sources */,
+				226C209F237BECC2001A84BF /* DecimalTextFieldViewModel.swift in Sources */,
+				223D5BA4237EA7CC00FAD64E /* KeyboardHost.swift in Sources */,
 				221B9A672377C66F00B414CF /* ContentView.swift in Sources */,
+				221B9A8B2377E98500B414CF /* Exercise.swift in Sources */,
 				221B9A652377C66F00B414CF /* dynamicFetch.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,17 +440,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = dynamicFetch/dynamicFetch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"dynamicFetch/Preview Content\"";
 				DEVELOPMENT_TEAM = 42ZJZ7S65L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = dynamicFetch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.xanderle.dynamicFetch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,17 +464,21 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = dynamicFetch/dynamicFetch.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				DERIVE_MACCATALYST_PRODUCT_BUNDLE_IDENTIFIER = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"dynamicFetch/Preview Content\"";
 				DEVELOPMENT_TEAM = 42ZJZ7S65L;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = dynamicFetch/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.xanderle.dynamicFetch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTS_MACCATALYST = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
