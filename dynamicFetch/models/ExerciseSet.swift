@@ -18,16 +18,15 @@ import CoreData
 class ExerciseSet: NSManagedObject {
     
     @NSManaged var exercise : Exercise
-    @NSManaged var set : NSNumber
+    @NSManaged var date : Date
     @NSManaged var reps : NSNumber?
-    
     @NSManaged var weight : NSNumber?
 }
 
 extension ExerciseSet{
     static func getExerciseSets(exercise : Exercise?) -> NSFetchRequest<ExerciseSet> {
            let request = ExerciseSet.fetchRequest() as! NSFetchRequest<ExerciseSet>
-           request.sortDescriptors = [NSSortDescriptor(key: "set", ascending: true)]
+           request.sortDescriptors = [NSSortDescriptor(key: "date", ascending: true)]
             request.predicate = NSPredicate(format: "exercise = %@", exercise ?? NSNull())
            return request
        }

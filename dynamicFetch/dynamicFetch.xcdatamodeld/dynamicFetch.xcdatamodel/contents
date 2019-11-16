@@ -7,8 +7,8 @@
         <relationship name="workout" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Workout" inverseName="exercises" inverseEntity="Workout"/>
     </entity>
     <entity name="ExerciseSet" representedClassName=".ExerciseSet" syncable="YES">
+        <attribute name="date" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="reps" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
-        <attribute name="set" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="weight" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="exercise" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Exercise" inverseName="exerciseSet" inverseEntity="Exercise"/>
     </entity>
@@ -20,7 +20,7 @@
     </entity>
     <elements>
         <element name="Exercise" positionX="-54" positionY="-9" width="128" height="103"/>
-        <element name="Workout" positionX="-63" positionY="-18" width="128" height="103"/>
         <element name="ExerciseSet" positionX="-54" positionY="18" width="128" height="103"/>
+        <element name="Workout" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>
