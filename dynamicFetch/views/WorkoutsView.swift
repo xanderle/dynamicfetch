@@ -41,7 +41,7 @@ struct WorkoutsView: View {
                     .navigationBarTitle("Workouts")
                     
                 Button(action: {
-                    var workout = Workout(context: self.managedObjectContext)
+                    let workout = Workout(context: self.managedObjectContext)
                     workout.date = Date()
                     workout.id = UUID()
                     saveItems(managedObjectContext: self.managedObjectContext)

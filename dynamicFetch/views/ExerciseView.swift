@@ -11,12 +11,13 @@ import CoreData
 
 struct ExerciseView: View {
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
-
+    
+    @State private var editMode: EditMode = .inactive
     var fetchRequest : FetchRequest<ExerciseSet>
     
-       var fetchedResults : FetchedResults<ExerciseSet> {
-           fetchRequest.wrappedValue
-       }
+    var fetchedResults : FetchedResults<ExerciseSet> {
+        fetchRequest.wrappedValue
+    }
     
     var exercise : Exercise
     
@@ -30,38 +31,51 @@ struct ExerciseView: View {
         VStack {
             HStack{Text(exercise.name)
                 Spacer()
-                 Button(action : {
-                               self.deleteExercise()
-                           }){
-                               Image(systemName : "minus.square")
-                           }
+                Button(action : {
+                    self.deleteExercise()
+                }){
+                    Image(systemName : "minus.square")
+                }
             }
-//            List{
+            HStack{
+                Text("Sets")
+                Spacer()
+                Text("Weight")
+                Spacer()
+                Text("Reps")
+                Spacer()
+                Text("Done")
+            }
+            
             ForEach(fetchedResults.indices, id: \.self) { index in
                 ExerciseSetView(exerciseSet : self.fetchedResults[index], set : index)
                 
-                }
-//            }
-                Button(action : {
-                    
-                    var exerciseSet = ExerciseSet(context : self.managedObjectContext)
-                    exerciseSet.date = Date()
-//                    exerciseSet.set = NSNumber(value : self.fetchedResults.count + 1)
-                    exerciseSet.exercise = self.exercise
-                    saveItems(managedObjectContext: self.managedObjectContext)
-                    print("Added")
-                    
-                }) {
-                    Text("Add set")
-                    
-                }
+            }.onDelete(perform: self.deleteItem)
+            //            }
+            Button(action : {
+                
+                let exerciseSet = ExerciseSet(context : self.managedObjectContext)
+                exerciseSet.date = Date()
+                //                    exerciseSet.set = NSNumber(value : self.fetchedResults.count + 1)
+                exerciseSet.exercise = self.exercise
+                saveItems(managedObjectContext: self.managedObjectContext)
+                print("Added")
+                
+            }) {
+                Text("Add set")
+                
+            }
             
-        }
+        }.navigationBarItems(leading: HStack{
+            Spacer()
+            EditButton()
+        })
+            .environment(\.editMode, self.$editMode)
     }
     func deleteExercise() {
         
-      managedObjectContext.delete(self.exercise)
-      do {
+        managedObjectContext.delete(self.exercise)
+        do {
             try managedObjectContext.save()
         } catch {
             print(error)
@@ -69,21 +83,23 @@ struct ExerciseView: View {
     }
     
     func deleteItem(indexSet: IndexSet) {
+        
         let node = fetchedResults[indexSet.first!]
         managedObjectContext.delete(node)
         saveItems(managedObjectContext: self.managedObjectContext)
     }
-//    func saveItems() {
-//        do {
-//            try managedObjectContext.save()
-//        } catch {
-//            print(error)
-//        }
-//    }
+    
 }
 
-//struct ExerciseView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ExerciseView()
-//    }
-//}
+struct ExerciseView_Previews: PreviewProvider {
+    static var previews: some View {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let exercise = Exercise(context : context)
+        exercise.name = "Something"
+        let exerciseSet = ExerciseSet(context : context)
+        exerciseSet.date = Date()
+        exerciseSet.exercise = exercise
+        
+        return ExerciseView(exercise : exercise)
+    }
+}

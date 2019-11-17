@@ -41,6 +41,9 @@ struct CustomTextField: UIViewRepresentable {
     func makeUIView(context: UIViewRepresentableContext<CustomTextField>) -> UITextField {
         
         let textField = UITextField(frame: .zero)
+        //textField.textAlignment =
+            textField.contentVerticalAlignment = UIControl.ContentVerticalAlignment.center
+        textField.textAlignment = .center
         textField.delegate = context.coordinator
         textField.addDoneButtonOnKeyboard()
         textField.keyboardType = UIKeyboardType.numberPad

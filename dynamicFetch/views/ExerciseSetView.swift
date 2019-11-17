@@ -30,32 +30,22 @@ struct ExerciseSetView: View {
     }
     
     var body: some View {
+        GeometryReader { geometry in
         HStack {
-            Text("\(set)")
+            Text("\(self.set)").multilineTextAlignment(.center).frame(width : geometry.size.width/4)
             Spacer()
-            CustomTextField(text : self.$weight.text, onEndEdit: updateRow)
-//            TextField("\(self.reps.text)", text : self.$weight.text, onEditingChanged: { (changed) in
-//                self.updateRow()
-//
-//            }) {self.updateRow()}
-//                .keyboardType(.numberPad)
-//
-            
+            CustomTextField(text : self.$weight.text, onEndEdit: self.updateRow).frame(width : geometry.size.width/4)
             Spacer()
-            CustomTextField(text : self.$reps.text, onEndEdit: updateRow)
-//            TextField("\(self.weight.text)",text: self.$reps.text, onEditingChanged: { (changed) in
-//                self.updateRow()}
-//
-//                      ).keyboardType(.numberPad)
+            CustomTextField(text : self.$reps.text, onEndEdit: self.updateRow).frame(width : geometry.size.width/4)
             Spacer()
-            deleteButton.animation(.default)
+            self.deleteButton.animation(.default).frame(width : geometry.size.width/4)
         }.onAppear() {
             //self.sets = "\(self.exerciseSet.set)"
             
         }.onDisappear() {
             print("Disappeared")
         }
-        
+        }
     }
     
     func updateRow() -> () {
@@ -92,8 +82,9 @@ struct ExerciseSetView_Previews: PreviewProvider {
     
     static var previews: some View {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        var exerciseSet = ExerciseSet(context : context)
+        let exerciseSet = ExerciseSet(context : context)
         exerciseSet.date = Date()
+        
         return ExerciseSetView(exerciseSet : exerciseSet, set : 0)
         
     }
