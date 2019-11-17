@@ -20,6 +20,10 @@
 		221B9A8D2377EC1200B414CF /* WorkoutsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A8C2377EC1200B414CF /* WorkoutsView.swift */; };
 		221B9A8F2377EC5400B414CF /* WorkoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221B9A8E2377EC5400B414CF /* WorkoutView.swift */; };
 		223D5BA4237EA7CC00FAD64E /* KeyboardHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D5BA3237EA7CC00FAD64E /* KeyboardHost.swift */; };
+		223D5BAD237F879A00FAD64E /* HelperFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D5BAC237F879A00FAD64E /* HelperFunctions.swift */; };
+		223D5BB0237FCF0800FAD64E /* DecimalField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D5BAF237FCF0800FAD64E /* DecimalField.swift */; };
+		223D5BF22380055000FAD64E /* UITextField+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D5BF12380055000FAD64E /* UITextField+Extensions.swift */; };
+		223D5BF42380058800FAD64E /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 223D5BF32380058800FAD64E /* CustomTextField.swift */; };
 		226C209123780627001A84BF /* ExerciseSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C209023780627001A84BF /* ExerciseSet.swift */; };
 		226C20932378095D001A84BF /* ExerciseSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C20922378095D001A84BF /* ExerciseSetView.swift */; };
 		226C2098237A9C7E001A84BF /* ExerciseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 226C2097237A9C7E001A84BF /* ExerciseView.swift */; };
@@ -56,6 +60,10 @@
 		221B9A8E2377EC5400B414CF /* WorkoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutView.swift; sourceTree = "<group>"; };
 		223D5BA3237EA7CC00FAD64E /* KeyboardHost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardHost.swift; sourceTree = "<group>"; };
 		223D5BAA237F728700FAD64E /* dynamicFetch.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = dynamicFetch.entitlements; sourceTree = "<group>"; };
+		223D5BAC237F879A00FAD64E /* HelperFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperFunctions.swift; sourceTree = "<group>"; };
+		223D5BAF237FCF0800FAD64E /* DecimalField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalField.swift; sourceTree = "<group>"; };
+		223D5BF12380055000FAD64E /* UITextField+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extensions.swift"; sourceTree = "<group>"; };
+		223D5BF32380058800FAD64E /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		226C209023780627001A84BF /* ExerciseSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSet.swift; sourceTree = "<group>"; };
 		226C20922378095D001A84BF /* ExerciseSetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseSetView.swift; sourceTree = "<group>"; };
 		226C2097237A9C7E001A84BF /* ExerciseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseView.swift; sourceTree = "<group>"; };
@@ -103,10 +111,11 @@
 			isa = PBXGroup;
 			children = (
 				223D5BAA237F728700FAD64E /* dynamicFetch.entitlements */,
-				223D5BA7237F598500FAD64E /* stores */,
+				223D5BAB237F878100FAD64E /* helpers */,
 				226C209D237BECB9001A84BF /* helperModels */,
 				221B9A872377E8EC00B414CF /* models */,
 				221B9A842377DFDF00B414CF /* views */,
+				223D5BAE237FCEF200FAD64E /* helperViews */,
 				221B9A5F2377C66F00B414CF /* AppDelegate.swift */,
 				221B9A612377C66F00B414CF /* SceneDelegate.swift */,
 				221B9A662377C66F00B414CF /* ContentView.swift */,
@@ -116,6 +125,7 @@
 				221B9A632377C66F00B414CF /* dynamicFetch.xcdatamodeld */,
 				221B9A6A2377C67600B414CF /* Preview Content */,
 				226C209B237AAB25001A84BF /* Utility.swift */,
+				223D5BF52380059800FAD64E /* UIKit */,
 			);
 			path = dynamicFetch;
 			sourceTree = "<group>";
@@ -140,10 +150,10 @@
 		221B9A842377DFDF00B414CF /* views */ = {
 			isa = PBXGroup;
 			children = (
-				226C2097237A9C7E001A84BF /* ExerciseView.swift */,
-				226C20922378095D001A84BF /* ExerciseSetView.swift */,
 				221B9A8C2377EC1200B414CF /* WorkoutsView.swift */,
 				221B9A8E2377EC5400B414CF /* WorkoutView.swift */,
+				226C2097237A9C7E001A84BF /* ExerciseView.swift */,
+				226C20922378095D001A84BF /* ExerciseSetView.swift */,
 				223D5BA3237EA7CC00FAD64E /* KeyboardHost.swift */,
 			);
 			path = views;
@@ -159,11 +169,29 @@
 			path = models;
 			sourceTree = "<group>";
 		};
-		223D5BA7237F598500FAD64E /* stores */ = {
+		223D5BAB237F878100FAD64E /* helpers */ = {
 			isa = PBXGroup;
 			children = (
+				223D5BAC237F879A00FAD64E /* HelperFunctions.swift */,
 			);
-			path = stores;
+			path = helpers;
+			sourceTree = "<group>";
+		};
+		223D5BAE237FCEF200FAD64E /* helperViews */ = {
+			isa = PBXGroup;
+			children = (
+				223D5BAF237FCF0800FAD64E /* DecimalField.swift */,
+			);
+			path = helperViews;
+			sourceTree = "<group>";
+		};
+		223D5BF52380059800FAD64E /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				223D5BF32380058800FAD64E /* CustomTextField.swift */,
+				223D5BF12380055000FAD64E /* UITextField+Extensions.swift */,
+			);
+			path = UIKit;
 			sourceTree = "<group>";
 		};
 		226C209D237BECB9001A84BF /* helperModels */ = {
@@ -275,11 +303,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				223D5BB0237FCF0800FAD64E /* DecimalField.swift in Sources */,
 				226C209C237AAB25001A84BF /* Utility.swift in Sources */,
 				226C2098237A9C7E001A84BF /* ExerciseView.swift in Sources */,
+				223D5BF22380055000FAD64E /* UITextField+Extensions.swift in Sources */,
 				221B9A602377C66F00B414CF /* AppDelegate.swift in Sources */,
 				226C20932378095D001A84BF /* ExerciseSetView.swift in Sources */,
 				221B9A892377E90700B414CF /* Workout.swift in Sources */,
+				223D5BAD237F879A00FAD64E /* HelperFunctions.swift in Sources */,
+				223D5BF42380058800FAD64E /* CustomTextField.swift in Sources */,
 				221B9A8D2377EC1200B414CF /* WorkoutsView.swift in Sources */,
 				221B9A8F2377EC5400B414CF /* WorkoutView.swift in Sources */,
 				226C209123780627001A84BF /* ExerciseSet.swift in Sources */,

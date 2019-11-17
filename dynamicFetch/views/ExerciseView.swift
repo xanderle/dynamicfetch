@@ -13,7 +13,7 @@ struct ExerciseView: View {
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
 
     var fetchRequest : FetchRequest<ExerciseSet>
-
+    
        var fetchedResults : FetchedResults<ExerciseSet> {
            fetchRequest.wrappedValue
        }
@@ -39,12 +39,14 @@ struct ExerciseView: View {
 //            List{
             ForEach(fetchedResults.indices, id: \.self) { index in
                 ExerciseSetView(exerciseSet : self.fetchedResults[index], set : index)
+                
                 }
 //            }
                 Button(action : {
                     
                     var exerciseSet = ExerciseSet(context : self.managedObjectContext)
-                    exerciseSet.set = NSNumber(value : self.fetchedResults.count + 1)
+                    exerciseSet.date = Date()
+//                    exerciseSet.set = NSNumber(value : self.fetchedResults.count + 1)
                     exerciseSet.exercise = self.exercise
                     saveItems(managedObjectContext: self.managedObjectContext)
                     print("Added")

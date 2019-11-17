@@ -10,6 +10,7 @@ import SwiftUI
 import CoreData
 
 struct WorkoutsView: View {
+
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
     
     var fetchRequest : FetchRequest<Workout>
@@ -51,7 +52,11 @@ struct WorkoutsView: View {
                 }
                 
             }
+            .navigationBarTitle("Workouts")
+            
+            
         }
+    
     }
     
 
@@ -59,7 +64,6 @@ struct WorkoutsView: View {
         let node = fetchedResults[indexSet.first!]
         managedObjectContext.delete(node)
         saveItems(managedObjectContext: self.managedObjectContext)
-
     }
 }
 
