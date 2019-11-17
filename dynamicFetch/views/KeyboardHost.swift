@@ -40,7 +40,7 @@ struct KeyboardHost<Content: View>: View {
         VStack {
             view
                 .padding(.bottom, self.keyboardHeight)
-                .animation(nil)
+                .animation(.default)
             
 //            Rectangle()
 //                .frame(height: keyboardHeight)

@@ -10,7 +10,6 @@ import SwiftUI
 import CoreData
 
 struct WorkoutsView: View {
-    @State private var editMode: EditMode = .inactive
 
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
     
@@ -54,10 +53,8 @@ struct WorkoutsView: View {
                 
             }
             .navigationBarTitle("Workouts")
-            .navigationBarItems(trailing: HStack{
-                EditButton()
-            })
-            .environment(\.editMode, self.$editMode)
+            
+            
         }
     
     }

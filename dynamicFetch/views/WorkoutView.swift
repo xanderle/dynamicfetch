@@ -48,6 +48,7 @@ struct WorkoutView: View {
                 
             }
             Spacer()
+            
         }
         .padding()
             .navigationBarTitle(workout.name ?? "Untitled")
@@ -68,7 +69,6 @@ struct WorkoutView: View {
             exercise.name = self.exerciseName
             exercise.workout = workout
             saveItems(managedObjectContext: managedObjectContext)
-
             self.exerciseName=""
         }
     }

@@ -9,6 +9,8 @@
 import SwiftUI
 import CoreData
 import Foundation
+import Combine
+import UIKit
 
 struct ExerciseSetView: View {
     @Environment(\.managedObjectContext) var managedObjectContext: NSManagedObjectContext
@@ -31,27 +33,32 @@ struct ExerciseSetView: View {
         HStack {
             Text("\(set)")
             Spacer()
-            TextField("\(self.reps.text)", text : self.$weight.text,onEditingChanged: { (changed) in
-                self.updateRow()
-                
-            }) {self.updateRow()}
-                .keyboardType(.numberPad)
+            CustomTextField(text : self.$weight.text, onEndEdit: updateRow)
+//            TextField("\(self.reps.text)", text : self.$weight.text, onEditingChanged: { (changed) in
+//                self.updateRow()
+//
+//            }) {self.updateRow()}
+//                .keyboardType(.numberPad)
+//
             
             Spacer()
-            TextField("\(self.weight.text)",text: self.$reps.text, onEditingChanged: { (changed) in
-                self.updateRow()}
-                      ){self.updateRow()}.keyboardType(.numberPad)
+            CustomTextField(text : self.$reps.text, onEndEdit: updateRow)
+//            TextField("\(self.weight.text)",text: self.$reps.text, onEditingChanged: { (changed) in
+//                self.updateRow()}
+//
+//                      ).keyboardType(.numberPad)
             Spacer()
             deleteButton.animation(.default)
         }.onAppear() {
             //self.sets = "\(self.exerciseSet.set)"
             
+        }.onDisappear() {
+            print("Disappeared")
         }
-        
         
     }
     
-    func updateRow() {
+    func updateRow() -> () {
         print("Updating")
         let formatter = NumberFormatter()
         exerciseSet.reps = formatter.number(from: self.reps.text)
@@ -79,8 +86,6 @@ struct ExerciseSetView: View {
         }
     }
 }
-
-
 
 
 struct ExerciseSetView_Previews: PreviewProvider {
